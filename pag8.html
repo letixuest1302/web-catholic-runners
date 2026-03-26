@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holy Pace Runners</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffc5d3;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #550000;
+            color: white;
+            padding: 40px 20px;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .main-container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            gap: 15px;
+            /* Quitamos align-items: center para que el sticky funcione correctamente */
+            align-items: flex-start; 
+            justify-content: center;
+        }
+
+        /* --- COLUMNAS DE IMAGEN (FIJAS EN SU POSICIÓN) --- */
+        .image-column {
+            flex: 0 0 30%; 
+            display: flex;
+            justify-content: center;
+            /* Esto hace que la imagen se quede "pegada" arriba aunque el centro crezca */
+            position: sticky;
+            top: 40px; 
+        }
+
+        .side-image {
+            width: 100%;
+            max-width: 500px; 
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* --- COLUMNA CENTRAL --- */
+        .content-column {
+            flex: 0 0 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .info-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            width: 100%;
+        }
+
+        .info-box {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px 30px;
+            width: 90%;
+            max-width: 350px;
+            font-size: 20px;
+            color: #550000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .info-box span { font-weight: bold; }
+
+        .phrase {
+            margin: 25px auto;
+            font-size: 24px;
+            color: #550000;
+            font-style: italic;
+        }
+
+        .links {
+            margin: 10px auto;
+            display: flex;
+            flex-direction: row; 
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 15px 20px;
+            width: 220px;
+            font-size: 18px;
+            color: white;
+            background-color: #550000;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        a.button:hover {
+            background-color: #770000;
+            transform: translateY(-2px);
+        }
+
+        a.inline-link {
+            color: #550000;
+            text-decoration: underline;
+        }
+
+        #join {
+            margin-top: 30px;
+            padding: 25px;
+            color: #550000;
+            font-size: 18px;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 15px;
+            max-width: 600px;
+        }
+
+        /* Diseño para móviles */
+        @media (max-width: 900px) {
+            .main-container { flex-direction: column; align-items: center; }
+            .image-column { position: static; width: 100%; order: 0; }
+            .image-column-left { order: -1; } /* Virgen arriba en móvil */
+            .content-column { order: 0; width: 100%; }
+            .image-column-right { order: 1; } /* Corazón abajo en móvil */
+            .side-image { max-width: 280px; }
+            a.button { width: 180px; }
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <header>Holy Pace Runners</header>
+
+    <div class="main-container">
+        <div class="image-column image-column-left">
+            <img src="virgen.png" alt="Virgen" class="side-image">
+        </div>
+
+        <div class="content-column">
+            <div class="info-container">
+                <div class="info-box">🕖 <span>HORA</span> 6:45 AM</div>
+                <div class="info-box">🏃 <span>RECORRIDO</span> <a href="https://es.wikiloc.com/rutas-carrera/retiro-5k-5407098" class="inline-link">5 km (Retiro)</a></div>
+                <div class="info-box">📍 <span>MEETING POINT</span> <a href="https://es.wikipedia.org/wiki/Puerta_de_la_Independencia" class="inline-link">Puerta Independencia</a></div>
+                <div class="info-box">📅 <span>DÍA</span> MARTES</div>
+            </div>
+
+            <div class="phrase">"Empieza tu vida conectando y moviéndote"</div>
+
+            <div class="links">
+                <a href="https://www.instagram.com/letixuest/" class="button">Founders</a>
+                <a href="https://www.instagram.com/victoriiahart?igsh=MTQ4bGF6ZWl0OGoybQ%3D%3D" class="button">Founders</a>
+            </div>
+
+            <div class="actions">
+                <a href="#join" class="button" id="joinBtn" style="width: 470px; max-width: 95%;">Únete al Club</a>
+            </div>
+
+            <div id="join" style="display:none;">
+                <h2>Por qué nos reunimos</h2>
+                <p>
+                    En Holy Pace Runners, corremos juntos glorificando a Dios.
+                    Nuestro objetivo es fortalecer cuerpo y espíritu, compartiendo
+                    la alegría de la vida activa y la fe. Cada paso que damos es
+                    un acto de conexión, fraternidad y gratitud hacia nuestro Creador.
+                    ¡Ven y vive la experiencia de entrenar en comunidad, con propósito!
+                </p>
+            </div>
+        </div>
+
+        <div class="image-column image-column-right">
+            <img src="corazon1.png" alt="Corazón" class="side-image">
+        </div>
+    </div>
+
+    <script>
+        const joinBtn = document.getElementById('joinBtn');
+        const joinSection = document.getElementById('join');
+
+        joinBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Alternamos la sección sin causar que el scroll mueva las imágenes laterales
+            joinSection.style.display = joinSection.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

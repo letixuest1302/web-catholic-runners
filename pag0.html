@@ -88,16 +88,16 @@
 
     <div class="info-container">
         <div class="info-box">
-            🕖 <span>HORA:</span> 6:45 AM
+            🕖 <span>HORA</span> 6:45 AM
         </div>
         <div class="info-box">
-            🏃 <span>Recorrido:</span> <a href="https://es.wikiloc.com/rutas-carrera/retiro-5k-5407098" target="_blank" class="inline-link">5 km (Parque del Retiro)</a>
+           🏃 <span>RECORRIDO</span> <a href="https://es.wikiloc.com/rutas-carrera/retiro-5k-5407098" class="inline-link">5 km (Parque del Retiro)</a>
 	</div>
 	<div class="info-box">
-		<span>MEETING POINT:</span> <a href="https://es.wikipedia.org/wiki/Puerta_de_la_Independencia" target="_blank" class="inline-link">Puerta de la independencia</a>
+         📍 <span>MEETING POINT</span> <a href="https://es.wikipedia.org/wiki/Puerta_de_la_Independencia" class="inline-link">Puerta de la independencia</a>
         </div>
         <div class="info-box">
-            📅 <span>DÍA:</span> MARTES
+            📅 <span>DÍA</span> MARTES
         </div>
     </div>
 
@@ -106,8 +106,8 @@
     </div>
 
     <div class="links">
-        <a href="https://www.instagram.com/letixuest/" target="_blank" class="button">Founders</a>
-        <a href="https://www.instagram.com/victoriiahart?igsh=MTQ4bGF6ZWl0OGoybQ%3D%3D" target="_blank" class="button">Founders</a>
+        <a href="https://www.instagram.com/letixuest/" class="button">Founders</a>
+        <a href="https://www.instagram.com/victoriiahart?igsh=MTQ4bGF6ZWl0OGoybQ%3D%3D" class="button">Founders</a>
     </div>
 
     <div class="actions">
@@ -129,9 +129,13 @@
         const joinBtn = document.getElementById('joinBtn');
         const joinSection = document.getElementById('join');
 
-        joinBtn.addEventListener('click', () => {
+        joinBtn.addEventListener('click', (e) => {
+            // Evitamos el salto brusco del ancla para que la transición sea suave
+            e.preventDefault();
             joinSection.style.display = joinSection.style.display === 'none' ? 'block' : 'none';
-            joinBtn.scrollIntoView({behavior: 'smooth'});
+            if(joinSection.style.display === 'block') {
+                joinSection.scrollIntoView({behavior: 'smooth'});
+            }
         });
     </script>
 
